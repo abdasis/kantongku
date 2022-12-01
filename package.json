@@ -1,14 +1,45 @@
 {
     "private": true,
     "scripts": {
+        "prepare": "husky install",
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build && vite build --ssr",
+        "lint": "eslint --fix .",
+        "format": "prettier 'resources/{js,jsx}/**/*.{js,jsx}' --write",
+        "pre-commit": "npm run format && lint-staged && pretty-quick --staged"
     },
     "devDependencies": {
+        "@inertiajs/inertia": "^0.11.0",
+        "@inertiajs/inertia-react": "^0.8.1",
+        "@inertiajs/progress": "^0.2.6",
+        "@inertiajs/server": "^0.1.0",
+        "@vitejs/plugin-react": "^2.0.0",
         "axios": "^1.1.2",
+        "eslint": "^8.28.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "eslint-plugin-react": "^7.31.11",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "husky": "^8.0.2",
         "laravel-vite-plugin": "^0.7.0",
+        "lint-staged": "^13.0.4",
         "lodash": "^4.17.19",
-        "postcss": "^8.1.14",
+        "postcss": "^8.4.18",
+        "prettier": "^2.8.0",
+        "pretty-quick": "^3.1.3",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
         "vite": "^3.0.0"
+    },
+    "dependencies": {
+        "@tabler/core": "^1.0.0-beta16",
+        "@tabler/icons": "^1.114.0",
+        "nprogress": "^0.2.0",
+        "prop-types": "^15.8.1",
+        "react-avatar": "^5.0.3",
+        "react-toastify": "^9.1.1"
+    },
+    "lint-staged": {
+        "*.js": "eslint --cache --fix"
     }
 }
